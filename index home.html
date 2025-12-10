@@ -10,56 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="Image/Logo.jpg" />
+    <link rel="stylesheet" href="assets/css/style.css">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0f172a', // Slate 900
-                            primary: '#1e40af', // Blue 800
-                            accent: '#3b82f6', // Blue 500
-                            light: '#f8fafc', // Slate 50
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Corporate clean lines */
-        .hero-section {
-            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.4) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; 
-        }
-        
-        /* Mobile adjustment for background fixed */
-        @media (max-width: 768px) {
-            .hero-section {
-                background-attachment: scroll;
-                background-position: center center;
-            }
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Nav Transition */
-        #main-nav {
-            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
-        }
-    </style>
+    <script src="assets/js/tailwind-config.js"></script>
 </head>
 <body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen">
 
@@ -71,7 +24,7 @@
                 <div class="flex items-center">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center gap-3">
-                        <img src="Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-lg object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
+                        <img src="assets\Image\Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-lg object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
                         <div class="flex flex-col">
                             <span id="logo-text" class="font-bold text-lg tracking-tight text-white transition-colors duration-300">HIDEFINATION</span>
                             <span class="text-xs text-blue-200 font-light">Culinary Excellence</span>
@@ -268,7 +221,7 @@
                 <!-- Col 1: Brand & Socials -->
                 <div class="space-y-6">
                     <div class="flex items-center gap-3">
-                        <img src="Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-md object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
+                        <img src="assets\Image\Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-md object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
                         <div class="flex flex-col">
                             <span class="font-bold text-xl tracking-tight">HIDEFINATION</span>
                             <span class="text-xs text-blue-300 font-light">Culinary Excellence</span>
@@ -348,53 +301,6 @@
         </div>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Navbar Scroll Script
-        const nav = document.getElementById('main-nav');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const logoText = document.getElementById('logo-text');
-        const menuBtn = document.getElementById('mobile-toggle-btn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                // Scrolled State (White)
-                nav.classList.add('bg-white', 'shadow-md', 'border-b', 'border-slate-200');
-                nav.classList.remove('bg-transparent', 'py-4');
-                nav.classList.add('py-2');
-                
-                logoText.classList.remove('text-white');
-                logoText.classList.add('text-brand-dark');
-
-                navLinks.forEach(link => {
-                    link.classList.remove('text-white', 'hover:text-blue-200');
-                    link.classList.add('text-slate-600', 'hover:text-brand-primary');
-                });
-                
-                menuBtn.classList.remove('text-white');
-                menuBtn.classList.add('text-slate-600');
-
-            } else {
-                // Top State (Transparent/Hero)
-                nav.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
-                nav.classList.add('bg-transparent', 'py-4');
-                
-                logoText.classList.add('text-white');
-                logoText.classList.remove('text-brand-dark');
-
-                navLinks.forEach(link => {
-                    link.classList.add('text-white', 'hover:text-blue-200');
-                    link.classList.remove('text-slate-600', 'hover:text-brand-primary');
-                });
-
-                 menuBtn.classList.add('text-white');
-                 menuBtn.classList.remove('text-slate-600');
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

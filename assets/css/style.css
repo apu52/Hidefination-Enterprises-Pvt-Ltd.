@@ -1,0 +1,26 @@
+/* Corporate clean lines */
+.hero-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile adjustment for background */
+@media (max-width: 768px) {
+    .hero-section {
+        background-position: center center;
+    }
+}
+
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav Transition */
+#main-nav {
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
