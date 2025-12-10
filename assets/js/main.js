@@ -3,6 +3,23 @@ function toggleMenu() {
     menu.classList.toggle('hidden');
 }
 
+// Set active navbar link based on current page
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index home.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href').split('/').pop().split('#')[0] || 'index home.html';
+        if (href === currentPage || (currentPage === '' && href === 'index home.html')) {
+            link.classList.add('active-nav-link');
+        } else {
+            link.classList.remove('active-nav-link');
+        }
+    });
+}
+
+// Initialize active link on page load
+document.addEventListener('DOMContentLoaded', setActiveNavLink);
 
 const nav = document.getElementById('main-nav');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -28,6 +45,11 @@ window.addEventListener('scroll', () => {
         navLinks.forEach(link => {
             link.classList.remove('text-white', 'hover:text-blue-200');
             link.classList.add('text-slate-600', 'hover:text-brand-primary');
+            // Keep active link styling on scroll
+            if (link.classList.contains('active-nav-link')) {
+                link.classList.remove('text-slate-600');
+                link.classList.add('text-brand-primary', 'font-bold');
+            }
         });
         
         menuBtn.classList.remove('text-white');
@@ -49,6 +71,11 @@ window.addEventListener('scroll', () => {
         navLinks.forEach(link => {
             link.classList.add('text-white', 'hover:text-blue-200');
             link.classList.remove('text-slate-600', 'hover:text-brand-primary');
+            // Active link color on transparent navbar
+            if (link.classList.contains('active-nav-link')) {
+                link.classList.remove('text-white', 'hover:text-blue-200');
+                link.classList.add('text-blue-300', 'font-bold');
+            }
         });
 
          menuBtn.classList.add('text-white');

@@ -1,13 +1,32 @@
 /* Corporate clean lines */
 .hero-section {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    background-image:
+        linear-gradient(to bottom, rgba(10, 16, 26, 0) 0%, rgba(10, 16, 26, 0.4) 55%, rgba(10, 16, 26, 0.72) 75%, rgba(10, 16, 26, 0.9) 100%),
+        linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(30, 64, 175, 0.85) 35%, rgba(15, 23, 42, 0.6) 70%, rgba(51, 65, 85, 0.5) 100%),
+        url('../Image/hero bg.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+}
+
+/* Page Transition Fade Effect */
+html {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+html.fade-out {
+    opacity: 0;
+}
+
+body {
+    transition: background-color 0.3s ease;
 }
 
 /* Mobile adjustment for background */
 @media (max-width: 768px) {
     .hero-section {
+        background-attachment: scroll;
         background-position: center center;
     }
 }
@@ -23,4 +42,51 @@
 /* Nav Transition */
 #main-nav {
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Active Nav Link Styling with underline */
+.nav-link {
+    position: relative;
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #93c5fd;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active,
+.nav-link.active-nav-link {
+    color: #93c5fd !important;
+    font-weight: bold;
+}
+
+.nav-link.active::after,
+.nav-link.active-nav-link::after {
+    width: 100%;
+    background-color: #93c5fd;
+}
+
+/* For mobile active states in menu */
+#mobile-menu .nav-link.active,
+#mobile-menu .nav-link.active-nav-link {
+    background-color: rgba(30, 64, 175, 0.1);
+    border-left: 4px solid #1e40af;
+    padding-left: calc(0.75rem - 4px);
+}
+
+#mobile-menu .nav-link.active::after,
+#mobile-menu .nav-link.active-nav-link::after {
+    display: none;
 }

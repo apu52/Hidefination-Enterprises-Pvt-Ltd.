@@ -9,54 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="Image/Logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="assets\Image\Logo.jpg" />
     <link rel="stylesheet" href="assets/css/style.css">
     
     <script src="assets/js/tailwind-config.js"></script>
+    <script src="assets/js/includes.js"></script>
 </head>
 <body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen">
 
-    <!-- Navigation -->
-    <!-- Initial State: Transparent background, White text -->
-    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center gap-3">
-                        <img src="assets\Image\Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-lg object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
-                        <div class="flex flex-col">
-                            <span id="logo-text" class="font-bold text-lg tracking-tight text-white transition-colors duration-300">HIDEFINATION</span>
-                            <span class="text-xs text-blue-200 font-light">Culinary Excellence</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Home</a>
-                    <a href="#divisions" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Divisions</a>
-                    <a href="#brands" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Brands</a>
-                    <a href="#contact" class="px-5 py-2.5 bg-brand-primary text-white text-sm font-medium rounded hover:bg-blue-900 transition-colors shadow-lg">
-                        Contact Us
-                    </a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="flex items-center md:hidden">
-                    <button id="mobile-toggle-btn" onclick="toggleMenu()" class="text-white hover:text-brand-accent p-2 transition-colors duration-300">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-50 border-t border-slate-200 shadow-xl absolute w-full left-0 top-full">
-            <div class="px-4 pt-2 pb-4 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Home</a>
-                <a href="#divisions" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Divisions</a>
-                <a href="#brands" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Brands</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-primary font-bold">Contact Us</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
     <header class="hero-section relative w-full h-screen flex items-center justify-center" id="home">
@@ -88,14 +50,14 @@
     <section id="divisions" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-2">Our Operations</h2>
+                <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-2">Our Operations</h2>
                 <h3 class="text-3xl font-bold text-brand-dark">Strategic Business Units</h3>
                 <div class="w-16 h-1 bg-brand-primary mx-auto mt-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                 <!-- FMCG -->
-                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-primary transition-colors">
                     <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </div>
@@ -106,7 +68,7 @@
                 </div>
 
                 <!-- Exports -->
-                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-primary transition-colors">
                     <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
                         <i class="fa-solid fa-earth-americas"></i>
                     </div>
@@ -117,7 +79,7 @@
                 </div>
 
                 <!-- Manufacturing -->
-                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-primary transition-colors">
                     <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
                         <i class="fa-solid fa-industry"></i>
                     </div>
@@ -135,7 +97,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
                 <div>
-                    <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-2">Portfolio</h2>
+                    <h2 class="text-xs font-bold text-brand-primary uppercase tracking-widest mb-2">Portfolio</h2>
                     <h3 class="text-3xl font-bold text-brand-dark">Featured Brands</h3>
                 </div>
                 <a href="#" class="hidden md:inline-flex items-center text-brand-primary font-semibold hover:text-blue-900 mt-4 md:mt-0 group">
@@ -146,43 +108,43 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Brand 1 -->
                 <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
-                    <div class="h-48 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative overflow-hidden">
                         <!-- Decorative bg element -->
-                        <i class="fa-solid fa-leaf absolute -bottom-4 -right-4 text-9xl text-green-200 opacity-20"></i>
-                        <h3 class="text-3xl font-bold text-emerald-800 relative z-10">Foods24x7</h3>
+                        <i class="fa-solid fa-leaf absolute -bottom-4 -right-4 text-9xl text-brand-primary opacity-10"></i>
+                        <h3 class="text-3xl font-bold text-brand-dark relative z-10">Foods24x7</h3>
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold text-slate-800 mb-2">Everyday Essentials</h4>
                         <p class="text-slate-500 mb-4 text-sm">Healthy. Traditional. Delicious.</p>
-                        <div class="w-12 h-1 bg-emerald-500 rounded"></div>
+                        <div class="w-12 h-1 bg-brand-primary rounded"></div>
                     </div>
                 </div>
 
                 <!-- Brand 2 -->
                 <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
-                    <div class="h-48 bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-slate-100 to-blue-100 flex items-center justify-center relative overflow-hidden">
                          <!-- Decorative bg element -->
-                         <i class="fa-solid fa-cookie-bite absolute -bottom-4 -right-4 text-9xl text-orange-200 opacity-20"></i>
-                        <h3 class="text-3xl font-bold text-orange-800 relative z-10">Yummzi</h3>
+                         <i class="fa-solid fa-cookie-bite absolute -bottom-4 -right-4 text-9xl text-brand-primary opacity-10"></i>
+                        <h3 class="text-3xl font-bold text-brand-dark relative z-10">Yummzi</h3>
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold text-slate-800 mb-2">Modern Snacking</h4>
                         <p class="text-slate-500 mb-4 text-sm">Snacking, reimagined.</p>
-                        <div class="w-12 h-1 bg-orange-500 rounded"></div>
+                        <div class="w-12 h-1 bg-brand-primary rounded"></div>
                     </div>
                 </div>
 
                 <!-- Brand 3 -->
                 <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
-                    <div class="h-48 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center relative overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center relative overflow-hidden">
                          <!-- Decorative bg element -->
-                         <i class="fa-solid fa-jar absolute -bottom-4 -right-4 text-9xl text-yellow-200 opacity-20"></i>
-                        <h3 class="text-3xl font-bold text-yellow-800 relative z-10">Beezo</h3>
+                         <i class="fa-solid fa-jar absolute -bottom-4 -right-4 text-9xl text-blue-200 opacity-20"></i>
+                        <h3 class="text-3xl font-bold text-white relative z-10 drop-shadow">Beezo</h3>
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold text-slate-800 mb-2">Pure Sweetness</h4>
                         <p class="text-slate-500 mb-4 text-sm">Nature’s sweetness, perfected.</p>
-                        <div class="w-12 h-1 bg-yellow-500 rounded"></div>
+                        <div class="w-12 h-1 bg-brand-primary rounded"></div>
                     </div>
                 </div>
             </div>
@@ -196,9 +158,9 @@
     </section>
 
     <!-- Global Presence Strip -->
-    <section class="py-16 bg-brand-dark text-white relative overflow-hidden" id="contact">
-        <!-- Abstract map pattern overlay -->
-        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <section class="py-20 text-white relative overflow-hidden bg-gradient-to-r from-brand-dark via-slate-900 to-brand-dark" id="contact">
+        <!-- Small plus/dot pattern background -->
+        <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
         
         <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
             <h2 class="text-3xl font-bold mb-6">Ready to Collaborate?</h2>
@@ -213,94 +175,10 @@
         </div>
     </section>
 
-    <!-- Updated Footer -->
-    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                
-                <!-- Col 1: Brand & Socials -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <img src="assets\Image\Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-md object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
-                        <div class="flex flex-col">
-                            <span class="font-bold text-xl tracking-tight">HIDEFINATION</span>
-                            <span class="text-xs text-blue-300 font-light">Culinary Excellence</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Redefining India's culinary excellence globally through innovation and authentic taste.
-                    </p>
-                    <div>
-                        <h6 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Follow Us</h6>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-white transition-all">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-                <!-- Col 2: Quick Links -->
-                <div class="lg:col-span-1">
-                    <h5 class="text-white font-bold mb-6">Quick Links</h5>
-                    <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Company Overview</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Business Verticals</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Brands</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Vision & Mission</a></li>
-                        <li><a href="#" class="hover:text-brand-accent transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3 & 4: Newsletter -->
-                <div class="lg:col-span-2">
-                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
-                        <h5 class="text-white font-bold mb-2">Newsletter</h5>
-                        <p class="text-slate-400 text-sm mb-4">
-                            Subscribe to stay ahead with Hidefination’s brands, innovations, and global updates.
-                        </p>
-                        <form class="flex flex-col sm:flex-row gap-2">
-                            <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2.5 rounded bg-slate-900 border border-slate-600 text-white placeholder-slate-500 focus:outline-none focus:border-brand-primary transition-colors">
-                            <button type="button" class="px-6 py-2.5 bg-brand-primary text-white font-medium rounded hover:bg-blue-600 transition-colors">
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- Contact Info Mini -->
-                    <div class="mt-8 flex flex-col md:flex-row gap-6 text-sm text-slate-400">
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-location-dot text-brand-primary mr-3"></i>
-                            <span>Corporate Office, Mumbai, India</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-envelope text-brand-primary mr-3"></i>
-                            <span>info@hidefination.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-                <p>&copy; 2025 Hidefination Enterprises Pvt. Ltd. All Rights Reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
-                    <a href="#" class="hover:text-white transition-colors">Sitemap</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
+            
+
