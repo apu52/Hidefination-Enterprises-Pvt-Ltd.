@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidefination Enterprises Pvt Ltd. | Food & Drinks FMCG Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="Image/Logo.jpg" />
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // Slate 900
+                            primary: '#1e40af', // Blue 800
+                            accent: '#3b82f6', // Blue 500
+                            light: '#f8fafc', // Slate 50
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Corporate clean lines */
+        .hero-section {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.4) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; 
+        }
+        
+        /* Mobile adjustment for background fixed */
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+                background-position: center center;
+            }
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Nav Transition */
+        #main-nav {
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <!-- Initial State: Transparent background, White text -->
+    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <img src="Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-lg object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
+                        <div class="flex flex-col">
+                            <span id="logo-text" class="font-bold text-lg tracking-tight text-white transition-colors duration-300">HIDEFINATION</span>
+                            <span class="text-xs text-blue-200 font-light">Culinary Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Home</a>
+                    <a href="#divisions" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Divisions</a>
+                    <a href="#brands" class="nav-link text-white hover:text-blue-200 font-medium text-sm uppercase tracking-wide transition-colors duration-300">Brands</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-brand-primary text-white text-sm font-medium rounded hover:bg-blue-900 transition-colors shadow-lg">
+                        Contact Us
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-toggle-btn" onclick="toggleMenu()" class="text-white hover:text-brand-accent p-2 transition-colors duration-300">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-50 border-t border-slate-200 shadow-xl absolute w-full left-0 top-full">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Home</a>
+                <a href="#divisions" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Divisions</a>
+                <a href="#brands" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Brands</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-primary font-bold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section relative w-full h-screen flex items-center justify-center" id="home">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center">
+            <div class="max-w-3xl pt-20"> 
+                <div class="inline-block px-3 py-1 bg-blue-900 bg-opacity-50 border border-blue-500 rounded-full text-blue-100 text-xs font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">
+                    Excellence in Every Bite
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+                    Redefining India’s <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">Culinary Excellence,</span> Globally
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-10 font-light max-w-2xl leading-relaxed opacity-90">
+                    From Mumbai to the world — Hidefination Enterprises creates iconic food brands that celebrate authentic taste, health, and innovation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#brands" class="px-8 py-4 bg-brand-primary text-white font-semibold rounded shadow-lg hover:bg-blue-800 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                        Discover Our Brands <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-semibold rounded hover:bg-white hover:text-brand-dark transition-all duration-300 text-center">
+                        Partner With Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Three-Vertical Snapshot -->
+    <section id="divisions" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-2">Our Operations</h2>
+                <h3 class="text-3xl font-bold text-brand-dark">Strategic Business Units</h3>
+                <div class="w-16 h-1 bg-brand-primary mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- FMCG -->
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                    <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">FMCG Division</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Curating India’s finest food brands specifically tailored for the evolving tastes of domestic consumers.
+                    </p>
+                </div>
+
+                <!-- Exports -->
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                    <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">Global Exports</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Taking authentic Indian flavors beyond borders to the Middle East, UK, and US markets.
+                    </p>
+                </div>
+
+                <!-- Manufacturing -->
+                <div class="group p-8 border border-slate-100 bg-brand-light rounded-sm hover:border-brand-accent transition-colors">
+                    <div class="w-14 h-14 bg-white rounded-lg shadow-sm flex items-center justify-center text-brand-primary mb-6 text-2xl group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">Manufacturing</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Setting benchmarks in quality control, hygiene standards, and process innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Brands Section -->
+    <section id="brands" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 text-center md:text-left">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-accent uppercase tracking-widest mb-2">Portfolio</h2>
+                    <h3 class="text-3xl font-bold text-brand-dark">Featured Brands</h3>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center text-brand-primary font-semibold hover:text-blue-900 mt-4 md:mt-0 group">
+                    View Full Portfolio <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Brand 1 -->
+                <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
+                    <div class="h-48 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center relative overflow-hidden">
+                        <!-- Decorative bg element -->
+                        <i class="fa-solid fa-leaf absolute -bottom-4 -right-4 text-9xl text-green-200 opacity-20"></i>
+                        <h3 class="text-3xl font-bold text-emerald-800 relative z-10">Foods24x7</h3>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Everyday Essentials</h4>
+                        <p class="text-slate-500 mb-4 text-sm">Healthy. Traditional. Delicious.</p>
+                        <div class="w-12 h-1 bg-emerald-500 rounded"></div>
+                    </div>
+                </div>
+
+                <!-- Brand 2 -->
+                <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
+                    <div class="h-48 bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center relative overflow-hidden">
+                         <!-- Decorative bg element -->
+                         <i class="fa-solid fa-cookie-bite absolute -bottom-4 -right-4 text-9xl text-orange-200 opacity-20"></i>
+                        <h3 class="text-3xl font-bold text-orange-800 relative z-10">Yummzi</h3>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Modern Snacking</h4>
+                        <p class="text-slate-500 mb-4 text-sm">Snacking, reimagined.</p>
+                        <div class="w-12 h-1 bg-orange-500 rounded"></div>
+                    </div>
+                </div>
+
+                <!-- Brand 3 -->
+                <div class="bg-white rounded overflow-hidden shadow-sm card-hover border border-slate-100">
+                    <div class="h-48 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center relative overflow-hidden">
+                         <!-- Decorative bg element -->
+                         <i class="fa-solid fa-jar absolute -bottom-4 -right-4 text-9xl text-yellow-200 opacity-20"></i>
+                        <h3 class="text-3xl font-bold text-yellow-800 relative z-10">Beezo</h3>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-slate-800 mb-2">Pure Sweetness</h4>
+                        <p class="text-slate-500 mb-4 text-sm">Nature’s sweetness, perfected.</p>
+                        <div class="w-12 h-1 bg-yellow-500 rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center md:hidden">
+                <a href="#" class="inline-flex items-center text-brand-primary font-semibold hover:text-blue-900">
+                    Explore Our World of Brands <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence Strip -->
+    <section class="py-16 bg-brand-dark text-white relative overflow-hidden" id="contact">
+        <!-- Abstract map pattern overlay -->
+        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Collaborate?</h2>
+            <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
+                Whether for export partnerships, manufacturing contracts, or distribution inquiries, Hidefination Enterprises connects you to quality.
+            </p>
+            <div class="flex justify-center gap-4">
+                 <button class="bg-white text-brand-dark px-8 py-3 rounded font-bold hover:bg-slate-200 transition-colors">
+                    Contact Corporate Office
+                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Col 1: Brand & Socials -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-md object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
+                        <div class="flex flex-col">
+                            <span class="font-bold text-xl tracking-tight">HIDEFINATION</span>
+                            <span class="text-xs text-blue-300 font-light">Culinary Excellence</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Redefining India's culinary excellence globally through innovation and authentic taste.
+                    </p>
+                    <div>
+                        <h6 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Follow Us</h6>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-white transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="lg:col-span-1">
+                    <h5 class="text-white font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Company Overview</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Business Verticals</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Brands</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Vision & Mission</a></li>
+                        <li><a href="#" class="hover:text-brand-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 & 4: Newsletter -->
+                <div class="lg:col-span-2">
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <h5 class="text-white font-bold mb-2">Newsletter</h5>
+                        <p class="text-slate-400 text-sm mb-4">
+                            Subscribe to stay ahead with Hidefination’s brands, innovations, and global updates.
+                        </p>
+                        <form class="flex flex-col sm:flex-row gap-2">
+                            <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2.5 rounded bg-slate-900 border border-slate-600 text-white placeholder-slate-500 focus:outline-none focus:border-brand-primary transition-colors">
+                            <button type="button" class="px-6 py-2.5 bg-brand-primary text-white font-medium rounded hover:bg-blue-600 transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info Mini -->
+                    <div class="mt-8 flex flex-col md:flex-row gap-6 text-sm text-slate-400">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-location-dot text-brand-primary mr-3"></i>
+                            <span>Corporate Office, Mumbai, India</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-envelope text-brand-primary mr-3"></i>
+                            <span>info@hidefination.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2025 Hidefination Enterprises Pvt. Ltd. All Rights Reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                    <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar Scroll Script
+        const nav = document.getElementById('main-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const logoText = document.getElementById('logo-text');
+        const menuBtn = document.getElementById('mobile-toggle-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Scrolled State (White)
+                nav.classList.add('bg-white', 'shadow-md', 'border-b', 'border-slate-200');
+                nav.classList.remove('bg-transparent', 'py-4');
+                nav.classList.add('py-2');
+                
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-brand-dark');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-blue-200');
+                    link.classList.add('text-slate-600', 'hover:text-brand-primary');
+                });
+                
+                menuBtn.classList.remove('text-white');
+                menuBtn.classList.add('text-slate-600');
+
+            } else {
+                // Top State (Transparent/Hero)
+                nav.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
+                nav.classList.add('bg-transparent', 'py-4');
+                
+                logoText.classList.add('text-white');
+                logoText.classList.remove('text-brand-dark');
+
+                navLinks.forEach(link => {
+                    link.classList.add('text-white', 'hover:text-blue-200');
+                    link.classList.remove('text-slate-600', 'hover:text-brand-primary');
+                });
+
+                 menuBtn.classList.add('text-white');
+                 menuBtn.classList.remove('text-slate-600');
+            }
+        });
+    </script>
+</body>
+</html>
