@@ -1,31 +1,36 @@
 <!-- Navigation (Solid - Always Visible) -->
 <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md border-b border-slate-200 py-2">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
+    <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div class="flex justify-between h-12 sm:h-14 md:h-16 items-center">
             <div class="flex items-center">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <img src="assets/Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 rounded-2xl shadow-lg object-contain" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
-                    <div class="flex flex-col">
-                        <span id="logo-text" class="font-bold text-lg tracking-tight text-brand-dark transition-colors duration-300">HIDEFINATION</span>
-                        <span class="text-xs text-slate-500 font-light">Culinary Excellence</span>
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="block">
+                        <img src="assets/Image/Logo.jpg" alt="Hidefination Logo" class="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-xl md:rounded-2xl shadow-lg object-contain hover:scale-105 transition-transform duration-300 cursor-pointer" style="box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1)" />
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link nav-home text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Home</a>
+                <div class="relative group">
+                    <button class="nav-link text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300 flex items-center gap-1">
+                        About Us
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-200">
+                        <div class="py-2">
+                            <a href="About us.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">About Us</a>
+                            <a href="Company Overview.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">Company Overview</a>
+                            <a href="Business.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">Business Verticals</a>
+                            <a href="Brands.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">Brands</a>
+                            <a href="Vision & Mission.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">Vision & Mission</a>
+                            <a href="Contact us.html" class="block px-4 py-3 text-sm text-slate-700 hover:bg-brand-primary hover:text-white transition-colors">Contact Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index home.html" class="nav-link nav-home text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Home</a>
-                <a href="About us.html" class="nav-link nav-about text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">About Us</a>
-                <a href="Company Overview.html" class="nav-link nav-company text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Company Overview</a>
-                <a href="Business.html" class="nav-link nav-business text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Business Verticals</a>
-                <a href="Brands.html" class="nav-link nav-brands text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Brands</a>
-                <a href="Vision & Mission.html" class="nav-link nav-vision text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Vision & Mission</a>
-                <a href="Contact us.html" class="nav-link nav-contact text-slate-600 hover:text-brand-primary font-medium text-sm uppercase tracking-wide transition-colors duration-300">Contact</a>
-                <a href="#" class="px-5 py-2.5 bg-brand-primary text-white text-sm font-medium rounded hover:bg-blue-900 transition-colors shadow-lg">
-                    Login
-                </a>
-            </div>
             <!-- Mobile menu button -->
-            <div class="flex items-center md:hidden">
+            <div class="flex items-center lg:hidden">
                 <button id="mobile-toggle-btn" onclick="toggleMenu()" class="text-slate-600 hover:text-brand-primary p-2 transition-colors duration-300">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
@@ -33,16 +38,23 @@
         </div>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-slate-50 border-t border-slate-200 shadow-xl absolute w-full left-0 top-full">
-        <div class="px-4 pt-2 pb-4 space-y-1">
-            <a href="index home.html" class="nav-link nav-home block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Home</a>
-            <a href="About us.html" class="nav-link nav-about block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">About Us</a>
-            <a href="Company Overview.html" class="nav-link nav-company block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Company Overview</a>
-            <a href="Business.html" class="nav-link nav-business block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Business Verticals</a>
-            <a href="Brands.html" class="nav-link nav-brands block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Brands</a>
-            <a href="Vision & Mission.html" class="nav-link nav-vision block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Vision & Mission</a>
-            <a href="Contact us.html" class="nav-link nav-contact block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Contact</a>
-            <a href="#" class="block px-3 py-2 text-base font-medium text-brand-primary font-bold">Login</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-50 border-t border-slate-200 shadow-xl absolute w-full left-0 top-full">
+        <div class="px-4 pt-2 pb-4 space-y-1 max-h-screen overflow-y-auto">
+            <a href="index.html" class="nav-link nav-home block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded">Home</a>
+            <div>
+                <button onclick="toggleMobileDropdown()" class="w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-200 rounded flex items-center justify-between">
+                    About Us
+                    <i class="fa-solid fa-chevron-down text-xs" id="mobile-dropdown-icon"></i>
+                </button>
+                <div id="mobile-dropdown" class="hidden pl-4 space-y-1 mt-1">
+                    <a href="About us.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">About Us</a>
+                    <a href="Company Overview.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">Company Overview</a>
+                    <a href="Business.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">Business Verticals</a>
+                    <a href="Brands.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">Brands</a>
+                    <a href="Vision & Mission.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">Vision & Mission</a>
+                    <a href="Contact us.html" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-200 rounded">Contact Us</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

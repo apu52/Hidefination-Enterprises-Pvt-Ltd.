@@ -1,16 +1,29 @@
-function toggleMenu() {
+// Make functions globally accessible
+window.toggleMenu = function() {
     const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+    if (menu) {
+        menu.classList.toggle('hidden');
+    }
+}
+
+window.toggleMobileDropdown = function() {
+    const dropdown = document.getElementById('mobile-dropdown');
+    const icon = document.getElementById('mobile-dropdown-icon');
+    if (dropdown && icon) {
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+    }
 }
 
 // Set active navbar link based on current page
 function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index home.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
-        const href = link.getAttribute('href').split('/').pop().split('#')[0] || 'index home.html';
-        if (href === currentPage || (currentPage === '' && href === 'index home.html')) {
+        const href = link.getAttribute('href').split('/').pop().split('#')[0] || 'index.html';
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
             link.classList.add('active-nav-link');
         } else {
             link.classList.remove('active-nav-link');

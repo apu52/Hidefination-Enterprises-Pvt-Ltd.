@@ -69,6 +69,17 @@ function initializeNavbar() {
             menu.classList.toggle('hidden');
         }
     };
+    
+    // Mobile dropdown toggle
+    window.toggleMobileDropdown = function() {
+        const dropdown = document.getElementById('mobile-dropdown');
+        const icon = document.getElementById('mobile-dropdown-icon');
+        if (dropdown && icon) {
+            dropdown.classList.toggle('hidden');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+    };
 
     // Navbar scroll effect (only for transparent navbar on home page)
     if (!document.body.classList.contains('solid-navbar')) {
