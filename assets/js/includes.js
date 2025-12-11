@@ -34,8 +34,16 @@ function setActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
+        const inMobileMenu = !!link.closest('#mobile-menu');
+
         // Remove all active-related classes
         link.classList.remove('active', 'text-brand-primary', 'font-bold', 'border-b-2', 'border-brand-primary');
+        // Reset cross-state text classes so mobile menu stays dark text
+        link.classList.remove('text-white', 'hover:text-blue-200', 'text-slate-600', 'hover:text-brand-primary');
+        if (inMobileMenu) {
+            link.classList.remove('text-slate-600', 'hover:text-brand-primary');
+            link.classList.add('text-slate-700', 'hover:text-brand-primary');
+        }
         
         // Check if this link matches the current page
         if (link.classList.contains(activeClass)) {
@@ -48,7 +56,9 @@ function setActiveNavLink() {
             }
         } else {
             // Non-active link styling depends on navbar type
-            if (document.body.classList.contains('solid-navbar')) {
+            if (inMobileMenu) {
+                link.classList.add('text-slate-700', 'hover:text-brand-primary');
+            } else if (document.body.classList.contains('solid-navbar')) {
                 link.classList.add('text-slate-600', 'hover:text-brand-primary');
             } else {
                 link.classList.add('text-white', 'hover:text-blue-200');
@@ -99,10 +109,16 @@ function initializeNavbar() {
                 }
                 
                 navLinks.forEach(link => {
+                    const inMobileMenu = !!link.closest('#mobile-menu');
                     // Only change non-active links on scroll
                     if (!link.classList.contains('active')) {
-                        link.classList.remove('text-white', 'hover:text-blue-200');
-                        link.classList.add('text-slate-600', 'hover:text-brand-primary');
+                        if (inMobileMenu) {
+                            link.classList.remove('text-white', 'hover:text-blue-200');
+                            link.classList.add('text-slate-700', 'hover:text-brand-primary');
+                        } else {
+                            link.classList.remove('text-white', 'hover:text-blue-200');
+                            link.classList.add('text-slate-600', 'hover:text-brand-primary');
+                        }
                     }
                 });
                 
@@ -120,10 +136,16 @@ function initializeNavbar() {
                 }
                 
                 navLinks.forEach(link => {
+                    const inMobileMenu = !!link.closest('#mobile-menu');
                     // Only change non-active links on scroll
                     if (!link.classList.contains('active')) {
-                        link.classList.remove('text-slate-600', 'hover:text-brand-primary');
-                        link.classList.add('text-white', 'hover:text-blue-200');
+                        if (inMobileMenu) {
+                            link.classList.remove('text-white', 'hover:text-blue-200');
+                            link.classList.add('text-slate-700', 'hover:text-brand-primary');
+                        } else {
+                            link.classList.remove('text-slate-600', 'hover:text-brand-primary');
+                            link.classList.add('text-white', 'hover:text-blue-200');
+                        }
                     }
                 });
                 
