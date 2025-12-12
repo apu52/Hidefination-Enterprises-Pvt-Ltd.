@@ -98,10 +98,18 @@ function initializeNavbar() {
             const logoText = document.getElementById('logo-text');
             const navLinks = document.querySelectorAll('.nav-link');
             const menuBtn = document.getElementById('mobile-toggle-btn');
+            const logoHero = document.getElementById('logo-hero');
+            const logoHeroWrapper = document.getElementById('logo-hero-wrapper');
+            const logoDefaultWrapper = document.getElementById('logo-default-wrapper');
 
             if (window.scrollY > 50) {
                 nav.classList.remove('bg-transparent', 'py-4');
                 nav.classList.add('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
+                                // Swap logos: show default container, hide hero image
+                                if (logoHeroWrapper && logoDefaultWrapper) {
+                                    logoHeroWrapper.classList.add('hidden');
+                                    logoDefaultWrapper.classList.remove('hidden');
+                                }
                 
                 if (logoText) {
                     logoText.classList.remove('text-white');
@@ -129,6 +137,11 @@ function initializeNavbar() {
             } else {
                 nav.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
                 nav.classList.add('bg-transparent', 'py-4');
+                                // Swap logos: show hero at top, hide default container
+                                if (logoHeroWrapper && logoDefaultWrapper) {
+                                    logoDefaultWrapper.classList.add('hidden');
+                                    logoHeroWrapper.classList.remove('hidden');
+                                }
                 
                 if (logoText) {
                     logoText.classList.remove('text-brand-dark');
@@ -155,6 +168,19 @@ function initializeNavbar() {
                 }
             }
         });
+
+        // Initialize logo states on load for top-of-page
+        const logoHeroInit = document.getElementById('logo-hero-wrapper');
+        const logoDefaultWrapperInit = document.getElementById('logo-default-wrapper');
+        if (logoHeroInit && logoDefaultWrapperInit) {
+            if (window.scrollY > 50) {
+                logoHeroInit.classList.add('hidden');
+                logoDefaultWrapperInit.classList.remove('hidden');
+            } else {
+                logoDefaultWrapperInit.classList.add('hidden');
+                logoHeroInit.classList.remove('hidden');
+            }
+        }
     }
 }
 
