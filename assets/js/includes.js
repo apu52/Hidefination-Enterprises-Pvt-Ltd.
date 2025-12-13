@@ -113,7 +113,7 @@ function initializeNavbar() {
                 
                 // Change logo to regular version on scroll
                 if (logoImg) {
-                    logoImg.src = 'assets/Image/logo.png';
+                    logoImg.src = 'assets/Image/Logo.png';
                 }
                     
                 navLinks.forEach(link => {
