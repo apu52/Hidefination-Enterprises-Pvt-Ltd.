@@ -71,7 +71,7 @@ function setActiveNavLink() {
 function initializeNavbar() {
     // Set active nav link
     setActiveNavLink();
-    
+        
     // Mobile menu toggle
     window.toggleMenu = function() {
         const menu = document.getElementById('mobile-menu');
@@ -79,7 +79,7 @@ function initializeNavbar() {
             menu.classList.toggle('hidden');
         }
     };
-    
+        
     // Mobile dropdown toggle
     window.toggleMobileDropdown = function() {
         const dropdown = document.getElementById('mobile-dropdown');
@@ -91,31 +91,31 @@ function initializeNavbar() {
         }
     };
 
+    // Initialize logo for transparent navbar
+    if (!document.body.classList.contains('solid-navbar')) {
+        const logoImg = document.getElementById('logo-img');
+        if (logoImg) {
+            logoImg.src = 'assets/Image/HIDEFINATION DARK Logo.png';
+        }
+    }
+
     // Navbar scroll effect (only for transparent navbar on home page)
     if (!document.body.classList.contains('solid-navbar')) {
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('main-nav');
-            const logoText = document.getElementById('logo-text');
             const navLinks = document.querySelectorAll('.nav-link');
             const menuBtn = document.getElementById('mobile-toggle-btn');
-            const logoHero = document.getElementById('logo-hero');
-            const logoHeroWrapper = document.getElementById('logo-hero-wrapper');
-            const logoDefaultWrapper = document.getElementById('logo-default-wrapper');
+            const logoImg = document.getElementById('logo-img');
 
             if (window.scrollY > 50) {
                 nav.classList.remove('bg-transparent', 'py-4');
                 nav.classList.add('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
-                                // Swap logos: show default container, hide hero image
-                                if (logoHeroWrapper && logoDefaultWrapper) {
-                                    logoHeroWrapper.classList.add('hidden');
-                                    logoDefaultWrapper.classList.remove('hidden');
-                                }
                 
-                if (logoText) {
-                    logoText.classList.remove('text-white');
-                    logoText.classList.add('text-brand-dark');
+                // Change logo to regular version on scroll
+                if (logoImg) {
+                    logoImg.src = 'assets/Image/logo.png';
                 }
-                
+                    
                 navLinks.forEach(link => {
                     const inMobileMenu = !!link.closest('#mobile-menu');
                     // Only change non-active links on scroll
@@ -129,7 +129,7 @@ function initializeNavbar() {
                         }
                     }
                 });
-                
+                    
                 if (menuBtn) {
                     menuBtn.classList.remove('text-white');
                     menuBtn.classList.add('text-slate-600');
@@ -137,17 +137,12 @@ function initializeNavbar() {
             } else {
                 nav.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
                 nav.classList.add('bg-transparent', 'py-4');
-                                // Swap logos: show hero at top, hide default container
-                                if (logoHeroWrapper && logoDefaultWrapper) {
-                                    logoDefaultWrapper.classList.add('hidden');
-                                    logoHeroWrapper.classList.remove('hidden');
-                                }
                 
-                if (logoText) {
-                    logoText.classList.remove('text-brand-dark');
-                    logoText.classList.add('text-white');
+                // Change logo back to dark version when scrolling to top
+                if (logoImg) {
+                    logoImg.src = 'assets/Image/HIDEFINATION DARK Logo.png';
                 }
-                
+                    
                 navLinks.forEach(link => {
                     const inMobileMenu = !!link.closest('#mobile-menu');
                     // Only change non-active links on scroll
@@ -161,7 +156,7 @@ function initializeNavbar() {
                         }
                     }
                 });
-                
+                    
                 if (menuBtn) {
                     menuBtn.classList.remove('text-slate-600');
                     menuBtn.classList.add('text-white');
@@ -169,18 +164,7 @@ function initializeNavbar() {
             }
         });
 
-        // Initialize logo states on load for top-of-page
-        const logoHeroInit = document.getElementById('logo-hero-wrapper');
-        const logoDefaultWrapperInit = document.getElementById('logo-default-wrapper');
-        if (logoHeroInit && logoDefaultWrapperInit) {
-            if (window.scrollY > 50) {
-                logoHeroInit.classList.add('hidden');
-                logoDefaultWrapperInit.classList.remove('hidden');
-            } else {
-                logoDefaultWrapperInit.classList.add('hidden');
-                logoHeroInit.classList.remove('hidden');
-            }
-        }
+        // No logo container initialization needed
     }
 }
 
