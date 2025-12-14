@@ -38,6 +38,7 @@ const nav = document.getElementById('main-nav');
 const navLinks = document.querySelectorAll('.nav-link');
 const menuBtn = document.getElementById('mobile-toggle-btn');
 const logoTagline = document.querySelector('.text-blue-200.font-light');
+const logoImg = document.getElementById('logo-img');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -45,6 +46,11 @@ window.addEventListener('scroll', () => {
         nav.classList.add('bg-white', 'shadow-md', 'border-b', 'border-slate-200');
         nav.classList.remove('bg-transparent', 'py-4');
         nav.classList.add('py-2');
+        
+        // Change logo to light version for white background
+        if (logoImg) {
+            logoImg.src = 'assets/Image/logo.png';
+        }
         
         if (logoTagline) {
             logoTagline.classList.remove('text-blue-200');
@@ -68,6 +74,11 @@ window.addEventListener('scroll', () => {
         
         nav.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200', 'py-2');
         nav.classList.add('bg-transparent', 'py-4');
+        
+        // Change logo back to dark version for transparent background
+        if (logoImg) {
+            logoImg.src = 'assets/Image/HIDEFINATION DARK Logo.png';
+        }
         
         if (logoTagline) {
             logoTagline.classList.add('text-blue-200');

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hidefination Enterprises</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .stat-card-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        .stat-card-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .stat-card-orange {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .table-hover:hover {
+            background-color: #f3f4f6;
+        }
+        .filter-tab {
+            transition: all 0.3s ease;
+        }
+        .filter-tab.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+        }
+        .date-range-picker {
+            display: none;
+        }
+        .date-range-picker.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-halved text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">Admin Dashboard</h1>
+                        <p class="text-xs text-gray-600">Hidefination Enterprises</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-semibold text-gray-700" id="adminUsername"></p>
+                        <p class="text-xs text-gray-500">Administrator</p>
+                    </div>
+                    <button onclick="logout()" class="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="hidden sm:inline">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card text-white rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/80 text-sm font-medium">Total Contacts</p>
+                        <p class="text-4xl font-bold mt-2" id="totalContacts">0</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-green text-white rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/80 text-sm font-medium">Today's Submissions</p>
+                        <p class="text-4xl font-bold mt-2" id="todayCount">0</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-calendar-day text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-blue text-white rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/80 text-sm font-medium">This Month</p>
+                        <p class="text-4xl font-bold mt-2" id="monthCount">0</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card-orange text-white rounded-2xl p-6 shadow-lg transform hover:scale-105 transition-all">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/80 text-sm font-medium">This Year</p>
+                        <p class="text-4xl font-bold mt-2" id="yearCount">0</p>
+                    </div>
+                    <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Filter by Date Range</h3>
+            <div class="flex flex-wrap gap-3 mb-4">
+                <button onclick="setFilter('all')" class="filter-tab active px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="all">
+                    <i class="fas fa-list mr-2"></i>All Time
+                </button>
+                <button onclick="setFilter('today')" class="filter-tab px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="today">
+                    <i class="fas fa-calendar-day mr-2"></i>Today
+                </button>
+                <button onclick="setFilter('week')" class="filter-tab px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="week">
+                    <i class="fas fa-calendar-week mr-2"></i>This Week
+                </button>
+                <button onclick="setFilter('month')" class="filter-tab px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="month">
+                    <i class="fas fa-calendar-alt mr-2"></i>This Month
+                </button>
+                <button onclick="setFilter('year')" class="filter-tab px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="year">
+                    <i class="fas fa-calendar mr-2"></i>This Year
+                </button>
+                <button onclick="toggleCustomDateRange()" class="filter-tab px-6 py-3 rounded-lg font-semibold border-2 border-gray-200" data-filter="custom">
+                    <i class="fas fa-calendar-check mr-2"></i>Custom Range
+                </button>
+            </div>
+
+            <!-- Custom Date Range Picker -->
+            <div id="customDateRange" class="date-range-picker bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">From Date</label>
+                        <input type="date" id="fromDate" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">To Date</label>
+                        <input type="date" id="toDate" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <button onclick="applyCustomDateRange()" class="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-filter mr-2"></i>Apply Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter by Inquiry Type -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="flex-shrink-0">
+                    <h3 class="text-lg font-bold text-gray-800">Filter by Inquiry Type</h3>
+                </div>
+                <div class="flex-1 max-w-xs">
+                    <select id="typeFilterDropdown" onchange="setTypeFilter(this.value)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-600 focus:outline-none font-semibold text-gray-700 bg-white cursor-pointer hover:border-green-400 transition-colors">
+                        <option value="all" selected>🟢 All Types</option>
+                        <option value="FMCG Distribution">📦 FMCG Distribution</option>
+                        <option value="Export Partnership">🌍 Export Partnership</option>
+                        <option value="Manufacturing & Supply">🏭 Manufacturing & Supply</option>
+                        <option value="Brand Collaboration">🤝 Brand Collaboration</option>
+                        <option value="Other">⋯ Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex-1 w-full">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search by name, email, phone, type, message..." 
+                            class="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                        <i class="fas fa-search absolute left-3 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="refreshData()" class="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Refresh</span>
+                    </button>
+                    <button onclick="exportToCSV()" class="flex items-center gap-2 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-download"></i>
+                        <span>Export CSV</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-3 text-sm text-gray-600">
+                <span id="resultCount">Showing 0 results</span>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-blue-600 mb-4"></i>
+            <p class="text-gray-600">Loading contact submissions...</p>
+        </div>
+
+        <!-- Contacts Table -->
+        <div id="contactsContainer" class="bg-white rounded-2xl shadow-lg overflow-hidden hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">#</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Phone</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Type</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsTableBody" class="divide-y divide-gray-200">
+                        <!-- Data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="bg-white rounded-2xl shadow-lg p-12 text-center hidden">
+            <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
+            <h3 class="text-xl font-bold text-gray-700 mb-2">No contacts found</h3>
+            <p class="text-gray-600">Contact submissions will appear here</p>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-gray-800">Edit Contact</h3>
+                <button onclick="closeEditModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <form id="editForm" class="p-6 space-y-4">
+                <input type="hidden" id="editRowIndex">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="editName" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <input type="email" id="editEmail" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                    <input type="tel" id="editPhone" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Inquiry Type</label>
+                    <input type="text" id="editType" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                    <textarea id="editMessage" rows="4" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none resize-none"></textarea>
+                </div>
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-save mr-2"></i>Save Changes
+                    </button>
+                    <button type="button" onclick="closeEditModal()" class="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Modal -->
+    <div id="viewModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-5 flex justify-between items-center rounded-t-2xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-lg"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Contact Details</h3>
+                </div>
+                <button onclick="closeViewModal()" class="text-white/80 hover:text-white transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div id="viewContent" class="p-6">
+                <!-- Content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzm3JRJKObZ6E_kIggLPsMjh-vRfr6XF19rWCNRwxmDtBCzSAzDHYdLMWIGEnMUA1Tn/exec';
+        let allContacts = [];
+        let filteredContacts = [];
+        let currentFilter = 'all';
+        let currentTypeFilter = 'all';
+        let customDateFrom = null;
+        let customDateTo = null;
+
+        // Check authentication
+        if (sessionStorage.getItem('adminAuth') !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        // Display username
+        document.getElementById('adminUsername').textContent = sessionStorage.getItem('adminUser') || 'Admin';
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContacts();
+            
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                applyFilters();
+            });
+
+            // Set today's date as max for date pickers
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('fromDate').max = today;
+            document.getElementById('toDate').max = today;
+        });
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        async function loadContacts() {
+            try {
+                document.getElementById('loadingState').classList.remove('hidden');
+                document.getElementById('contactsContainer').classList.add('hidden');
+                document.getElementById('emptyState').classList.add('hidden');
+
+                const response = await fetch(`${SCRIPT_URL}?action=getData`);
+                const result = await response.json();
+
+                if (result.success && result.data) {
+                    allContacts = result.data;
+                    filteredContacts = allContacts;
+                    displayContacts(allContacts);
+                    updateStatistics(allContacts);
+                } else {
+                    throw new Error('Failed to load data');
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+                alert('Failed to load contacts. Please try again.');
+            } finally {
+                document.getElementById('loadingState').classList.add('hidden');
+            }
+        }
+
+        function displayContacts(contacts) {
+            const tbody = document.getElementById('contactsTableBody');
+            const container = document.getElementById('contactsContainer');
+            const emptyState = document.getElementById('emptyState');
+
+            if (contacts.length === 0) {
+                container.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            container.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            tbody.innerHTML = contacts.map((contact, index) => `
+                <tr class="table-hover">
+                    <td class="px-6 py-4 text-sm text-gray-900">${index + 1}</td>
+                    <td class="px-6 py-4">
+                        <div class="font-medium text-gray-900">${escapeHtml(contact.fullName)}</div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700">${escapeHtml(contact.email)}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700">${escapeHtml(contact.phone)}</td>
+                    <td class="px-6 py-4">
+                        <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                            ${escapeHtml(contact.inquiryType)}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700">${formatDate(contact.timestamp)}</td>
+                    <td class="px-6 py-4">
+                        <div class="flex gap-2">
+                            <button onclick='viewContact(${JSON.stringify(contact).replace(/'/g, "&apos;")})' 
+                                class="text-blue-600 hover:text-blue-800" title="View">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick='editContact(${JSON.stringify(contact).replace(/'/g, "&apos;")})' 
+                                class="text-green-600 hover:text-green-800" title="Edit">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick='deleteContact(${contact.rowIndex}, "${escapeHtml(contact.fullName)}")' 
+                                class="text-red-600 hover:text-red-800" title="Delete">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateStatistics(contacts) {
+            const total = contacts.length;
+            const now = new Date();
+            const today = now.toDateString();
+            const todayCount = contacts.filter(c => new Date(c.timestamp).toDateString() === today).length;
+            
+            const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+            const monthCount = contacts.filter(c => new Date(c.timestamp) >= monthStart).length;
+
+            const yearStart = new Date(now.getFullYear(), 0, 1);
+            const yearCount = contacts.filter(c => new Date(c.timestamp) >= yearStart).length;
+
+            document.getElementById('totalContacts').textContent = total;
+            document.getElementById('todayCount').textContent = todayCount;
+            document.getElementById('monthCount').textContent = monthCount;
+            document.getElementById('yearCount').textContent = yearCount;
+        }
+
+        function viewContact(contact) {
+            const content = document.getElementById('viewContent');
+            content.innerHTML = `
+                <div class="space-y-6">
+                    <!-- Header Info Card -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-200">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                ${escapeHtml(contact.fullName).charAt(0).toUpperCase()}
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-2xl font-bold text-gray-800">${escapeHtml(contact.fullName)}</h4>
+                                <p class="text-blue-600 font-medium">${escapeHtml(contact.inquiryType)}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3 bg-white rounded-lg p-3">
+                                <i class="fas fa-envelope text-blue-600 text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-gray-600 font-semibold">Email Address</p>
+                                    <p class="text-sm text-gray-900 font-medium">${escapeHtml(contact.email)}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-white rounded-lg p-3">
+                                <i class="fas fa-phone text-blue-600 text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-gray-600 font-semibold">Phone Number</p>
+                                    <p class="text-sm text-gray-900 font-medium">${escapeHtml(contact.phone)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Card -->
+                    <div class="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i class="fas fa-comment-dots text-gray-600 text-lg"></i>
+                            <h5 class="text-lg font-bold text-gray-800">Message</h5>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">${escapeHtml(contact.message)}</p>
+                    </div>
+
+                    <!-- Timestamp Card -->
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-clock text-purple-600 text-lg"></i>
+                                <div>
+                                    <p class="text-xs text-purple-700 font-semibold">Submitted On</p>
+                                    <p class="text-sm text-purple-900 font-bold">${formatDate(contact.timestamp)}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-purple-700 font-semibold">Time Ago</p>
+                                <p class="text-sm text-purple-900 font-bold">${getTimeAgo(contact.timestamp)}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3 pt-4">
+                        <button onclick='editContactFromView(${JSON.stringify(contact).replace(/'/g, "&apos;")})' class="flex-1 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+                            <i class="fas fa-edit mr-2"></i>Edit Contact
+                        </button>
+                        <button onclick='deleteContactFromView(${contact.rowIndex}, "${escapeHtml(contact.fullName)}")' class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors shadow-md">
+                            <i class="fas fa-trash mr-2"></i>Delete
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('viewModal').classList.remove('hidden');
+        }
+
+        function closeViewModal() {
+            document.getElementById('viewModal').classList.add('hidden');
+        }
+
+        function editContact(contact) {
+            document.getElementById('editRowIndex').value = contact.rowIndex;
+            document.getElementById('editName').value = contact.fullName;
+            document.getElementById('editEmail').value = contact.email;
+            document.getElementById('editPhone').value = contact.phone;
+            document.getElementById('editType').value = contact.inquiryType;
+            document.getElementById('editMessage').value = contact.message;
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        function editContactFromView(contact) {
+            // Close view modal first, then open edit
+            closeViewModal();
+            
+            // Wait for close animation, then open edit
+            setTimeout(() => {
+                document.getElementById('editRowIndex').value = contact.rowIndex;
+                document.getElementById('editName').value = contact.fullName;
+                document.getElementById('editEmail').value = contact.email;
+                document.getElementById('editPhone').value = contact.phone;
+                document.getElementById('editType').value = contact.inquiryType;
+                document.getElementById('editMessage').value = contact.message;
+                document.getElementById('editModal').classList.remove('hidden');
+            }, 100);
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+            document.getElementById('editForm').reset();
+        }
+
+        function deleteContactFromView(rowIndex, name) {
+            if (!confirm(`Are you sure you want to delete the contact from "${name}"?`)) {
+                return;
+            }
+            // Close view modal first
+            closeViewModal();
+            // Then delete
+            deleteContact(rowIndex, name);
+        }
+
+        function deleteContactFromView(rowIndex, name) {
+            if (!confirm(`Are you sure you want to delete the contact from "${name}"?`)) {
+                return;
+            }
+            // Close view modal first
+            closeViewModal();
+            // Then delete
+            deleteContact(rowIndex, name);
+        }
+
+        document.getElementById('editForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                action: 'update',
+                rowIndex: document.getElementById('editRowIndex').value,
+                fullName: document.getElementById('editName').value,
+                email: document.getElementById('editEmail').value,
+                phone: document.getElementById('editPhone').value,
+                inquiryType: document.getElementById('editType').value,
+                message: document.getElementById('editMessage').value
+            };
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Contact updated successfully!');
+                    closeEditModal();
+                    loadContacts();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error updating contact:', error);
+                alert('Failed to update contact. Please try again.');
+            }
+        });
+
+        async function deleteContact(rowIndex, name) {
+            if (!confirm(`Are you sure you want to delete the contact from "${name}"?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        action: 'delete',
+                        rowIndex: rowIndex
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Contact deleted successfully!');
+                    loadContacts();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error deleting contact:', error);
+                alert('Failed to delete contact. Please try again.');
+            }
+        }
+
+        function refreshData() {
+            loadContacts();
+        }
+
+        function exportToCSV() {
+            if (filteredContacts.length === 0) {
+                alert('No data to export');
+                return;
+            }
+
+            const headers = ['Name', 'Email', 'Phone', 'Inquiry Type', 'Message', 'Date'];
+            const csvData = [
+                headers.join(','),
+                ...filteredContacts.map(contact => [
+                    `"${contact.fullName}"`,
+                    `"${contact.email}"`,
+                    `"${contact.phone}"`,
+                    `"${contact.inquiryType}"`,
+                    `"${contact.message.replace(/"/g, '""')}"`,
+                    `"${formatDate(contact.timestamp)}"`
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvData], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `contacts_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getTimeAgo(timestamp) {
+            const now = new Date();
+            const past = new Date(timestamp);
+            const diffMs = now - past;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins} min${diffMins > 1 ? 's' : ''} ago`;
+            if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+            if (diffDays < 30) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+            const diffMonths = Math.floor(diffDays / 30);
+            return `${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`;
+        }
+
+        function setFilter(filterType) {
+            currentFilter = filterType;
+            
+            // Update active tab
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-filter="${filterType}"]`).classList.add('active');
+
+            // Hide custom date range if not custom
+            if (filterType !== 'custom') {
+                document.getElementById('customDateRange').classList.remove('active');
+            }
+
+            applyFilters();
+        }
+
+        function toggleCustomDateRange() {
+            const customRange = document.getElementById('customDateRange');
+            customRange.classList.toggle('active');
+            
+            if (customRange.classList.contains('active')) {
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector('[data-filter="custom"]').classList.add('active');
+            }
+        }
+
+        function applyCustomDateRange() {
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+
+            if (!fromDate || !toDate) {
+                alert('Please select both start and end dates');
+                return;
+            }
+
+            if (new Date(fromDate) > new Date(toDate)) {
+                alert('Start date must be before end date');
+                return;
+            }
+
+            customDateFrom = new Date(fromDate);
+            customDateFrom.setHours(0, 0, 0, 0);
+            
+            customDateTo = new Date(toDate);
+            customDateTo.setHours(23, 59, 59, 999);
+
+            currentFilter = 'custom';
+            applyFilters();
+        }
+
+        function setTypeFilter(type) {
+            currentTypeFilter = type;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+            
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            // Start with all contacts
+            let results = [...allContacts];
+            
+            // First filter by search term (if not empty)
+            if (searchTerm) {
+                results = results.filter(contact => {
+                    // Safely check each field
+                    const name = (contact.fullName || '').toLowerCase();
+                    const email = (contact.email || '').toLowerCase();
+                    const phone = (contact.phone || '').toLowerCase();
+                    const type = (contact.inquiryType || '').toLowerCase();
+                    const message = (contact.message || '').toLowerCase();
+                    
+                    return name.includes(searchTerm) ||
+                           email.includes(searchTerm) ||
+                           phone.includes(searchTerm) ||
+                           type.includes(searchTerm) ||
+                           message.includes(searchTerm);
+                });
+            }
+
+            // Then filter by inquiry type
+            if (currentTypeFilter !== 'all') {
+                results = results.filter(c => c.inquiryType === currentTypeFilter);
+            }
+
+            // Then filter by date
+            const now = new Date();
+            
+            switch(currentFilter) {
+                case 'today':
+                    const today = now.toDateString();
+                    results = results.filter(c => {
+                        const contactDate = new Date(c.timestamp);
+                        return contactDate.toDateString() === today;
+                    });
+                    break;
+                
+                case 'week':
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    results = results.filter(c => new Date(c.timestamp) >= weekAgo);
+                    break;
+                
+                case 'month':
+                    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+                    results = results.filter(c => new Date(c.timestamp) >= monthStart);
+                    break;
+                
+                case 'year':
+                    const yearStart = new Date(now.getFullYear(), 0, 1);
+                    results = results.filter(c => new Date(c.timestamp) >= yearStart);
+                    break;
+                
+                case 'custom':
+                    if (customDateFrom && customDateTo) {
+                        results = results.filter(c => {
+                            const date = new Date(c.timestamp);
+                            return date >= customDateFrom && date <= customDateTo;
+                        });
+                    }
+                    break;
+            }
+
+            filteredContacts = results;
+            displayContacts(filteredContacts);
+            
+            // Update result count
+            const resultCountEl = document.getElementById('resultCount');
+            if (resultCountEl) {
+                resultCountEl.textContent = 
+                    `Showing ${filteredContacts.length} of ${allContacts.length} result${allContacts.length !== 1 ? 's' : ''}`;
+            }
+        }
+    </script>
+</body>
+</html>
