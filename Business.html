@@ -14,46 +14,31 @@
     <script src="assets/js/tailwind-config.js"></script>
     <script src="assets/js/includes.js"></script>
 </head>
-<body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen solid-navbar">
+<body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen">
 
     <!-- Navigation Placeholder -->
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
-    <header class="relative w-full pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 overflow-hidden min-h-screen flex items-center" id="business" style="background-image: url('assets/Image/business 1.avif'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <!-- Dark gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 via-brand-dark/90 to-purple-900/90 opacity-95"></div>
-        
-        <!-- Additional overlay pattern -->
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
-        
-        <!-- Animated background elements -->
-        <div class="absolute top-20 right-20 w-72 h-72 bg-blue-400 rounded-full opacity-10 blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 -left-40 w-96 h-96 bg-brand-primary rounded-full opacity-15 blur-3xl animate-pulse animation-delay-2000"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-block px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-50 rounded-full text-white text-xs font-semibold tracking-wider uppercase mb-6 sm:mb-8 backdrop-blur-md hover:bg-opacity-30 transition-all duration-300 group">
-                    <i class="fa-solid fa-briefcase mr-2 group-hover:scale-110 transition-transform"></i>Business Verticals
+    <header class="relative w-full h-screen flex items-center justify-center" id="business" style="background-image: linear-gradient(to bottom, rgba(10, 16, 26, 0) 0%, rgba(10, 16, 26, 0.4) 55%, rgba(10, 16, 26, 0.72) 75%, rgba(10, 16, 26, 0.9) 100%), linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(30, 64, 175, 0.85) 35%, rgba(15, 23, 42, 0.6) 70%, rgba(51, 65, 85, 0.5) 100%), url('assets/Image/pic 2.avif'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center">
+            <div class="max-w-3xl pt-20 sm:pt-24">
+                <div class="inline-block px-3 py-1 bg-blue-900 bg-opacity-50 border border-blue-500 rounded-full text-blue-100 text-xs font-semibold tracking-wider uppercase mb-8 sm:mb-10 backdrop-blur-sm hover:bg-opacity-60 transition-all duration-300">
+                    <i class="fa-solid fa-briefcase mr-2"></i>Business Verticals
                 </div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6 drop-shadow-xl">
-                    A Unified FMCG Ecosystem Built on Trust, Quality & Purpose
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-10 sm:mb-12 drop-shadow-2xl">
+                    A Unified FMCG Ecosystem Built on <br class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200 drop-shadow-lg">Trust, Quality & Purpose</span>
                 </h1>
-                <div class="bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl p-4 sm:p-6 max-w-4xl mx-auto mb-4">
-                    <p class="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-3">
-                        Hidefination Enterprises Pvt. Ltd. operates through three integrated verticals that collectively strengthen our brand ecosystem, operational reliability, and long-term business impact.
-                    </p>
-                    <p class="text-sm sm:text-base text-blue-100 leading-relaxed">
-                        Each vertical has a distinct strategic role, yet all are connected through one shared mission: <span class="font-bold text-yellow-300">to deliver clean, authentic, trustworthy Indian food experiences at scale.</span>
-                    </p>
-                </div>
                 
-                <!-- CTA Button -->
-                <div class="mt-12 flex justify-center">
-                    <a href="#fmcg" class="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-white text-brand-primary font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 group">
-                        <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
-                        <span>Explore Our Verticals</span>
-                    </a>
+                <div class="space-y-6 sm:space-y-7 md:space-y-8">
+                    <p class="text-sm sm:text-base text-white font-light max-w-2xl leading-loose drop-shadow-lg">
+                        <span class="font-semibold text-blue-200">Hidefination Enterprises Pvt. Ltd.</span> operates through <span class="text-blue-300 font-medium">three integrated verticals</span> that collectively strengthen our <span class="text-blue-200 font-medium">brand ecosystem</span>, <span class="text-blue-200 font-medium">operational reliability</span>, and <span class="text-blue-200 font-medium">long-term business impact</span>.
+                    </p>
+                    
+                    <p class="text-sm sm:text-base text-blue-100 font-light max-w-2xl leading-loose drop-shadow-lg">
+                        Each vertical has a <span class="text-white font-medium">distinct strategic role</span>, yet all are connected through one shared mission: <span class="text-white font-medium">to deliver clean, authentic, trustworthy Indian food experiences at scale</span>.
+                    </p>
                 </div>
             </div>
         </div>
@@ -112,21 +97,21 @@
                         
                         <div class="space-y-4">
                             <div class="flex items-center gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-heart text-white text-xl"></i>
                                 </div>
                                 <h4 class="text-lg font-bold text-slate-900">Authentic and Culturally Rooted</h4>
                             </div>
 
                             <div class="flex items-center gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-spa text-white text-xl"></i>
                                 </div>
                                 <h4 class="text-lg font-bold text-slate-900">Aligned with India's Wellness Movement</h4>
                             </div>
 
                             <div class="flex items-center gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-shield-halved text-white text-xl"></i>
                                 </div>
                                 <h4 class="text-lg font-bold text-slate-900">Clean, Trustworthy, and Mindful</h4>
@@ -140,7 +125,7 @@
                             </div>
 
                             <div class="flex items-center gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-700 to-blue-800 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-handshake text-white text-xl"></i>
                                 </div>
                                 <h4 class="text-lg font-bold text-slate-900">Built on Long-Term Consumer Loyalty</h4>
@@ -217,35 +202,35 @@
     </section>
 
     <!-- Exports - Expanding India's Food Identity Section -->
-    <section class="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-900 via-brand-dark to-blue-800 text-white overflow-hidden" id="exports">
-        <!-- Animated background elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 left-0 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
+    <section class="relative py-12 sm:py-16 bg-white overflow-hidden" id="exports">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
-            <div class="text-center mb-12">
-                <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full text-white text-sm font-bold tracking-wider uppercase mb-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+            <div class="text-center mb-10">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-brand-primary to-blue-700 rounded-full text-white text-sm font-bold tracking-wider uppercase mb-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                     <i class="fa-solid fa-globe mr-2"></i>Exports – Expanding India's Food Identity Across Borders
                 </div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-brand-primary via-blue-700 to-blue-900 bg-clip-text text-transparent">
                     Across Borders
                 </h2>
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-4xl mx-auto border border-white/20 shadow-xl">
-                    <p class="text-lg sm:text-xl text-blue-50 font-medium leading-relaxed">
+                <div class="bg-gradient-to-r from-blue-100/50 to-blue-50/50 backdrop-blur-sm rounded-2xl p-6 max-w-4xl mx-auto border border-blue-200/50">
+                    <p class="text-lg sm:text-xl text-slate-700 font-medium leading-relaxed">
                         Our export vertical enables Hidefination to proudly carry Indian food identity to global markets.
                     </p>
                 </div>
             </div>
 
             <!-- Main Content Grid -->
-            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch mt-8">
                 <!-- Left Side - Image -->
                 <div class="w-full lg:w-1/2 order-2 lg:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
-                        <img src="assets/Image/business 2.avif" alt="Export Business" class="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/30 to-transparent"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group h-full">
+                        <img src="assets/Image/business 2.avif" alt="Export Business" class="w-full h-full min-h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-8">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
                                 <i class="fa-solid fa-globe text-white text-3xl"></i>
@@ -257,69 +242,69 @@
                 </div>
 
                 <!-- Right Side - Content -->
-                <div class="w-full lg:w-1/2 order-1 lg:order-2">
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-100 bg-clip-text text-transparent">We work with international distributors, retailers, and partners who value:</h3>
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-6 text-slate-900">We work with international distributors, retailers, and partners who value:</h3>
                     
-                    <div class="space-y-4">
-                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border-2 border-white/20 hover:border-white/50 hover:bg-white/15 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+                    <div class="space-y-3 flex-grow">
+                        <div class="bg-white border border-blue-200 rounded-xl p-4 hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                    <i class="fa-solid fa-certificate text-white text-2xl"></i>
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                    <i class="fa-solid fa-certificate text-white text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-white group-hover:text-blue-100 transition-colors">Consistent Quality</h4>
+                                    <h4 class="text-base font-bold text-slate-900">Consistent Quality</h4>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border-2 border-white/20 hover:border-white/50 hover:bg-white/15 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+                        <div class="bg-white border border-blue-200 rounded-xl p-4 hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                    <i class="fa-solid fa-box-open text-white text-2xl"></i>
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                    <i class="fa-solid fa-box-open text-white text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-white group-hover:text-blue-100 transition-colors">Flexible Packaging Formats</h4>
+                                    <h4 class="text-base font-bold text-slate-900">Flexible Packaging Formats</h4>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border-2 border-white/20 hover:border-white/50 hover:bg-white/15 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+                        <div class="bg-white border border-blue-200 rounded-xl p-4 hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                    <i class="fa-solid fa-file-contract text-white text-2xl"></i>
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                    <i class="fa-solid fa-file-contract text-white text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-white group-hover:text-blue-100 transition-colors">Professional Export Documentation</h4>
+                                    <h4 class="text-base font-bold text-slate-900">Professional Export Documentation</h4>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border-2 border-white/20 hover:border-white/50 hover:bg-white/15 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+                        <div class="bg-white border border-blue-200 rounded-xl p-4 hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                    <i class="fa-solid fa-shield-halved text-white text-2xl"></i>
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                    <i class="fa-solid fa-shield-halved text-white text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-white group-hover:text-blue-100 transition-colors">Strict Compliance with International Standards</h4>
+                                    <h4 class="text-base font-bold text-slate-900">Strict Compliance with International Standards</h4>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border-2 border-white/20 hover:border-white/50 hover:bg-white/15 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+                        <div class="bg-white border border-blue-200 rounded-xl p-4 hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                                    <i class="fa-solid fa-clock text-white text-2xl"></i>
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                                    <i class="fa-solid fa-clock text-white text-xl"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-white group-hover:text-blue-100 transition-colors">Reliable and Timely Supply Cycles</h4>
+                                    <h4 class="text-base font-bold text-slate-900">Reliable and Timely Supply Cycles</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-8 p-6 bg-white/10 rounded-2xl border-2 border-white/20 hover:border-white/40 hover:shadow-2xl transition-all duration-300">
-                        <p class="text-blue-50 leading-relaxed text-lg">
-                            <span class="font-bold text-white">This vertical helps us</span> showcase India's culinary richness beyond borders and positions Hidefination as a trusted global partner for Indian FMCG products.
+                    <div class="mt-6 p-5 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-l-4 border-brand-primary">
+                        <p class="text-slate-700 leading-relaxed font-medium">
+                            <span class="font-bold text-brand-dark">This vertical helps us</span> showcase India's culinary richness beyond borders and positions Hidefination as a trusted global partner for Indian FMCG products.
                         </p>
                     </div>
                 </div>
@@ -364,7 +349,7 @@
                         
                         <div class="space-y-4">
                             <div class="flex items-start gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-primary to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-shield-halved text-white text-xl"></i>
                                 </div>
                                 <div>
@@ -374,7 +359,7 @@
                             </div>
 
                             <div class="flex items-start gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-check-circle text-white text-xl"></i>
                                 </div>
                                 <div>
@@ -384,7 +369,7 @@
                             </div>
 
                             <div class="flex items-start gap-4 group/item hover:translate-x-2 transition-transform duration-300">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg group-hover/item:scale-110 transition-transform">
                                     <i class="fa-solid fa-handshake text-white text-xl"></i>
                                 </div>
                                 <div>
@@ -433,19 +418,19 @@
     </section>
 
     <!-- How Verticals Work Together Section -->
-    <section class="relative py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-900 via-brand-dark to-blue-800 text-white overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-300/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
+    <section class="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%2360a5fa%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-16">
-                <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-white text-sm font-bold tracking-wider uppercase mb-6 hover:bg-white/30 transition-all duration-300">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-brand-primary to-blue-700 rounded-full text-white text-sm font-bold tracking-wider uppercase mb-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                     <i class="fa-solid fa-link mr-2"></i>Integrated Excellence
                 </div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-primary via-blue-700 to-blue-900 bg-clip-text text-transparent">
                     How Our Verticals Work Together
                 </h2>
             </div>
@@ -453,72 +438,72 @@
             <!-- Vertical Integration Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                 <!-- FMCG Brands -->
-                <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:border-white/50 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+                <div class="bg-white border border-blue-200 rounded-2xl p-8 hover:bg-blue-50 hover:border-blue-400 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
                     <div class="w-16 h-16 bg-gradient-to-br from-brand-primary to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <i class="fa-solid fa-rocket text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">FMCG Brands</h3>
-                    <p class="text-blue-100 leading-relaxed text-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">FMCG Brands</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
                         Shape consumer choices and build long-term loyalty.
                     </p>
                 </div>
 
                 <!-- Exports -->
-                <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:border-white/50 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+                <div class="bg-white border border-blue-200 rounded-2xl p-8 hover:bg-blue-50 hover:border-blue-400 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <i class="fa-solid fa-globe text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Exports</h3>
-                    <p class="text-blue-100 leading-relaxed text-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">Exports</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
                         Expand the reach and cultural influence of our brands globally.
                     </p>
                 </div>
 
                 <!-- Manufacturing -->
-                <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-8 hover:bg-white/20 hover:border-white/50 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+                <div class="bg-white border border-blue-200 rounded-2xl p-8 hover:bg-blue-50 hover:border-blue-400 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-pointer group">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-700 to-blue-800 rounded-xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <i class="fa-solid fa-industry text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Manufacturing</h3>
-                    <p class="text-blue-100 leading-relaxed text-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">Manufacturing</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
                         Delivers the structure, reliability, and quality required to sustain growth.
                     </p>
                 </div>
             </div>
 
             <!-- Key Attributes -->
-            <div class="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-8 hover:bg-white/15 hover:border-white/40 transition-all duration-300">
-                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8">Together, they form a complete FMCG engine that is:</h3>
+            <div class="bg-gradient-to-r from-blue-100/50 to-blue-50/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-200/50">
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-8 text-slate-900">Together, they form a complete FMCG engine that is:</h3>
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                             <i class="fa-solid fa-chart-line text-white text-2xl"></i>
                         </div>
-                        <p class="font-semibold">Scalable</p>
+                        <p class="font-semibold text-slate-900">Scalable</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                             <i class="fa-solid fa-certificate text-white text-2xl"></i>
                         </div>
-                        <p class="font-semibold">Quality-driven</p>
+                        <p class="font-semibold text-slate-900">Quality-driven</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                             <i class="fa-solid fa-users text-white text-2xl"></i>
                         </div>
-                        <p class="font-semibold">Community-supportive</p>
+                        <p class="font-semibold text-slate-900">Community-supportive</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                             <i class="fa-solid fa-earth-americas text-white text-2xl"></i>
                         </div>
-                        <p class="font-semibold">Globally adaptable</p>
+                        <p class="font-semibold text-slate-900">Globally adaptable</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                             <i class="fa-solid fa-heart text-white text-2xl"></i>
                         </div>
-                        <p class="font-semibold">Culturally connected</p>
+                        <p class="font-semibold text-slate-900">Culturally connected</p>
                     </div>
                 </div>
             </div>
@@ -526,10 +511,9 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative py-20 text-white overflow-hidden bg-gradient-to-r from-brand-dark via-slate-900 to-brand-dark">
+    <section class="relative py-20 text-white overflow-hidden bg-gradient-to-br from-slate-900 via-brand-dark to-blue-900">
         <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
         <div class="relative max-w-4xl mx-auto px-4 text-center">
-            <div class="text-5xl sm:text-6xl mb-6">✨</div>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">Ready to Partner With Us?</h2>
             <p class="text-lg sm:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Discover how our business verticals can create value for your organization and drive sustainable growth together.

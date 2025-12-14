@@ -14,38 +14,27 @@
     <script src="assets/js/tailwind-config.js"></script>
     <script src="assets/js/includes.js"></script>
 </head>
-<body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen solid-navbar">
+<body class="font-sans text-slate-700 bg-white antialiased flex flex-col min-h-screen">
 
     <!-- Navigation Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Hero Section with brands.png Background -->
-    <header class="relative w-full pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-14 md:pb-16 overflow-hidden min-h-screen flex items-center" id="brands" style="background-image: url('assets/Image/brands.png'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <!-- Dark gradient overlay for text readability and corporate feel -->
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-brand-dark/90 to-blue-800/90 opacity-95"></div>
-        
-        <!-- Additional overlay pattern for professional look -->
-        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
-        
-        <!-- Animated background elements for corporate feel -->
-        <div class="absolute top-20 right-20 w-72 h-72 bg-blue-400 rounded-full opacity-10 blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 -left-40 w-96 h-96 bg-brand-primary rounded-full opacity-15 blur-3xl animate-pulse animation-delay-2000"></div>
-        
-        <!-- Content -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="max-w-4xl mx-auto text-center">
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen flex items-center justify-center" id="brands" style="background-image: linear-gradient(to bottom, rgba(10, 16, 26, 0) 0%, rgba(10, 16, 26, 0.4) 55%, rgba(10, 16, 26, 0.72) 75%, rgba(10, 16, 26, 0.9) 100%), linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(30, 64, 175, 0.85) 35%, rgba(15, 23, 42, 0.6) 70%, rgba(51, 65, 85, 0.5) 100%), url('assets/Image/pic 4.avif'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full flex items-center">
+            <div class="max-w-3xl pt-20 sm:pt-24">
                 <div class="inline-block px-4 py-2 bg-white bg-opacity-20 border border-white border-opacity-50 rounded-full text-white text-xs font-semibold tracking-wider uppercase mb-6 sm:mb-8 backdrop-blur-md hover:bg-opacity-30 transition-all duration-300 group">
                     <i class="fa-solid fa-sparkles mr-2 group-hover:scale-110 transition-transform"></i>Our Brand Portfolio
                 </div>
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8 drop-shadow-xl">
                     A Portfolio of <br class="hidden sm:block">Purpose-Driven Brands
                 </h1>
-                <p class="text-lg sm:text-xl md:text-2xl text-blue-50 leading-relaxed max-w-3xl mx-auto drop-shadow-md mb-8">
-                    Hidefination Enterprises Pvt. Ltd. develops and nurtures brands that reflect India's evolving food culture—brands built on purity, mindful consumption, authenticity, and trust.
+                <p class="text-lg sm:text-xl md:text-2xl text-blue-50 leading-relaxed drop-shadow-md mb-8">
+                    Hidefination Enterprises Pvt. Ltd. develops and nurtures brands that reflect <span class="font-bold text-blue-200">India's evolving food culture</span>—brands built on <span class="font-semibold text-blue-300">purity</span>, <span class="font-semibold text-white">mindful consumption</span>, <span class="font-semibold text-blue-300">authenticity</span>, and <span class="font-bold text-white">trust</span>.
                 </p>
                 
                 <!-- CTA Button in Hero -->
-                <div class="mt-12 flex justify-center">
+                <div class="mt-12">
                     <a href="#brandPortfolio" class="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-white text-brand-primary font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 group">
                         <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
                         <span>Explore Our Brands</span>
@@ -61,42 +50,56 @@
         <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl"></div>
         
-        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Mission Icon -->
-            <div class="flex justify-center mb-6">
-                <div class="w-16 h-16 bg-gradient-to-br from-brand-primary to-blue-600 rounded-2xl flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                    <i class="fa-solid fa-bullseye text-white text-2xl"></i>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-2 bg-gradient-to-r from-brand-primary to-blue-700 rounded-full text-white text-sm font-bold tracking-wider uppercase mb-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <i class="fa-solid fa-bullseye mr-2"></i>Our Mission
                 </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-primary via-blue-700 to-blue-900 bg-clip-text text-transparent">
+                    Our Purpose & Vision
+                </h2>
             </div>
-            
-            <!-- Mission Title -->
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-brand-primary via-blue-600 to-blue-800 bg-clip-text text-transparent">
-                Our Mission
-            </h2>
-            
-            <!-- Primary Mission Statement -->
-            <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 sm:p-10 mb-6 border border-blue-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-300">
-                <div class="flex items-start gap-4">
-                    <i class="fa-solid fa-quote-left text-brand-primary text-2xl mt-1 flex-shrink-0"></i>
-                    <p class="text-xl sm:text-2xl text-slate-700 leading-relaxed font-medium">
-                        To make healthier, culturally rooted choices accessible to every household.
-                    </p>
-                    <i class="fa-solid fa-quote-right text-brand-primary text-2xl mt-1 flex-shrink-0"></i>
+
+            <!-- Mission Content with Image -->
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                <!-- Left: Image -->
+                <div class="w-full lg:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group h-full">
+                        <img src="assets/Image/pic 5.avif" alt="Our Mission" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-bullseye text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-white text-2xl font-bold mb-2">Purpose-Driven Excellence</h3>
+                            <p class="text-blue-100">Building brands that matter</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Supporting Statement -->
-            <div class="bg-gradient-to-r from-blue-100/50 to-blue-50/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-blue-200/50 hover:from-blue-100/70 hover:to-blue-50/70 transition-all duration-300">
-                <p class="text-base sm:text-lg text-slate-700 leading-relaxed text-center">
-                    Each brand in our portfolio serves a distinct purpose while contributing to a unified mission: to bring <span class="font-semibold text-brand-primary">purity</span>, <span class="font-semibold text-blue-600">wellness</span>, and <span class="font-semibold text-blue-700">authenticity</span> to India's modern food culture.
-                </p>
-            </div>
-            
-            <!-- Decorative Line -->
-            <div class="flex items-center justify-center gap-4 mt-10">
-                <div class="w-20 h-1 bg-gradient-to-r from-transparent to-brand-primary rounded-full"></div>
-                <i class="fa-solid fa-heart text-brand-primary text-xl"></i>
-                <div class="w-20 h-1 bg-gradient-to-l from-transparent to-blue-600 rounded-full"></div>
+
+                <!-- Right: Content -->
+                <div class="w-full lg:w-1/2">
+                    <div class="space-y-6">
+                        <!-- Primary Mission Statement -->
+                        <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 border border-blue-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-300">
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-quote-left text-brand-primary text-2xl mt-1 flex-shrink-0"></i>
+                                <p class="text-xl sm:text-2xl text-slate-700 leading-relaxed font-medium">
+                                    To make healthier, culturally rooted choices accessible to every household.
+                                </p>
+                                <i class="fa-solid fa-quote-right text-brand-primary text-2xl mt-1 flex-shrink-0"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Supporting Statement -->
+                        <div class="bg-gradient-to-r from-blue-100/50 to-blue-50/50 backdrop-blur-sm rounded-2xl p-6 border border-blue-200/50 hover:from-blue-100/70 hover:to-blue-50/70 transition-all duration-300">
+                            <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+                                Each brand in our portfolio serves a distinct purpose while contributing to a unified mission: to bring <span class="font-semibold text-brand-primary">purity</span>, <span class="font-semibold text-blue-600">wellness</span>, and <span class="font-semibold text-blue-700">authenticity</span> to India's modern food culture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -117,10 +120,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
             <!-- Brand 1: Beezo (Image Left, Content Right) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20">
                 <!-- Image -->
-                <div class="relative group">
-                    <img src="assets/Image/brands.png" alt="Beezo Brand" class="w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl group-hover:brightness-110" />
+                <div class="relative group h-full min-h-[600px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
+                    <img src="assets/Image/beezo.png" alt="Beezo Brand" class="w-full h-full object-contain rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105" />
                 </div>
                 
                 <!-- Text Content -->
@@ -175,7 +178,7 @@
             </div>
 
             <!-- Brand 2: Yummzi (Content Left, Image Right) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20">
                 <!-- Text Content -->
                 <div class="flex flex-col gap-4">
                     <div class="inline-block px-4 py-2 bg-brand-primary/10 rounded-full text-brand-primary text-xs font-bold tracking-wider uppercase w-fit transition-all duration-300 hover:bg-brand-primary/20 hover:shadow-lg hover:scale-105 cursor-pointer">
@@ -227,16 +230,16 @@
                 </div>
                 
                 <!-- Image -->
-                <div class="relative group">
-                    <img src="assets/Image/brands.png" alt="Yummzi Brand" class="w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl group-hover:brightness-110" />
+                <div class="relative group h-full min-h-[600px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
+                    <img src="assets/Image/yummzi.png" alt="Yummzi Brand" class="w-full h-full object-contain rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105" />
                 </div>
             </div>
 
             <!-- Brand 3: Foods24x7 -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch mb-20">
                 <!-- Image -->
-                <div class="relative group">
-                    <img src="assets/Image/brands.png" alt="Foods24x7 Brand" class="w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-3xl group-hover:brightness-110" />
+                <div class="relative group h-full min-h-[600px] bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border-4 border-blue-200 hover:border-blue-400 transition-all duration-300">
+                    <img src="assets/Image/foods 24x7.png" alt="Foods24x7 Brand" class="w-full h-full object-contain rounded-xl shadow-lg transition-all duration-500 group-hover:scale-105" />
                 </div>
                 
                 <!-- Content -->
@@ -296,19 +299,13 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="relative py-16 sm:py-20 md:py-24 text-white overflow-hidden">
+    <section class="relative py-12 sm:py-16 text-white overflow-hidden">
         <!-- Background with gradient and pattern -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-brand-dark to-slate-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-brand-dark to-blue-900"></div>
         <div class="absolute inset-0 opacity-15" style="background-image: url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221%22%3E%3Cpath d=%22M10,2 L10,18 M2,10 L18,10%22/%3E%3C/g%3E%3C/svg%3E'); background-size: 20px 20px;"></div>
         
-        <!-- Animated background elements -->
-        <div class="absolute top-10 right-10 w-40 h-40 bg-brand-primary rounded-full opacity-10 blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-10 left-10 w-40 h-40 bg-blue-500 rounded-full opacity-10 blur-3xl animate-pulse animation-delay-2000"></div>
-        
         <div class="relative max-w-4xl mx-auto px-4 text-center">
-            <div class="text-5xl sm:text-6xl mb-6">✨</div>
-            
-            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-lg">
                 Discover Our Brands
             </h2>
             
