@@ -49,7 +49,7 @@ window.addEventListener('scroll', () => {
         
         // Change logo to light version for white background
         if (logoImg) {
-            logoImg.src = 'assets/Image/logo.png';
+            logoImg.src = 'assets/Image/Logo.png';
         }
         
         if (logoTagline) {
