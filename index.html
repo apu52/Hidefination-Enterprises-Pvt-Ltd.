@@ -53,17 +53,17 @@
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
                 <!-- Left Column: Image -->
                 <div class="w-full lg:w-1/2 flex">
-                    <div class="relative w-full">
-                        <img src="assets/Image/hero bg.png" alt="Hidefination Team" class="w-full h-full object-cover rounded-2xl" />
+                    <div class="relative w-full overflow-hidden rounded-2xl group cursor-pointer">
+                        <img src="assets/Image/hero bg.png" alt="Hidefination Team" class="w-full h-full object-cover rounded-2xl transition-all duration-500 group-hover:scale-110" />
                     </div>
                 </div>
                 
                 <!-- Right Column: Content -->
                 <div class="w-full lg:w-1/2">
-                    <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4 transition-all duration-300 hover:text-brand-primary cursor-default">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
                         Who We Are
                     </h2>
-                    <div class="w-16 h-1 bg-brand-primary mb-8 transition-all duration-300 hover:w-24"></div>
+                    <div class="w-16 h-1 bg-brand-primary mb-8"></div>
                     
                     <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 leading-tight">
                         Leading India's Premium Food & Beverage Innovation
@@ -162,8 +162,8 @@
                 
                 <!-- Right: Image -->
                 <div class="flex items-stretch order-first lg:order-last">
-                    <div class="w-full rounded-xl overflow-hidden relative min-h-[220px]">
-                        <img src="assets/Image/hero bg.png" alt="Corporate product image" class="w-full h-full object-cover">
+                    <div class="w-full rounded-xl overflow-hidden relative min-h-[220px] group cursor-pointer">
+                        <img src="assets/Image/hero bg.png" alt="Corporate product image" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110">
                         <!-- Subtle overlay -->
                         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/5 pointer-events-none"></div>
                     </div>
@@ -173,7 +173,7 @@
             <!-- Feature Strip: 3 equal columns -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mt-5 items-stretch">
                 <!-- Feature 1: FMCG -->
-                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 transition-all duration-300 hover:bg-blue-50/50 hover:scale-105 rounded-lg cursor-pointer group">
+                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 transition-all duration-300 hover:bg-blue-50/50 hover:shadow-md rounded-lg cursor-pointer group">
                     <div class="font-extrabold text-brand-primary text-lg transition-all duration-300 group-hover:scale-125 group-hover:text-blue-800">
                         01
                     </div>
@@ -186,7 +186,7 @@
                 </div>
                 
                 <!-- Feature 2: Exports (with side borders on large screens) -->
-                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 md:border-l md:border-r md:border-slate-200 md:px-5 transition-all duration-300 hover:bg-blue-50/50 hover:scale-105 rounded-lg cursor-pointer group">
+                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 md:border-l md:border-r md:border-slate-200 md:px-5 transition-all duration-300 hover:bg-blue-50/50 hover:shadow-md rounded-lg cursor-pointer group">
                     <div class="font-extrabold text-brand-primary text-lg transition-all duration-300 group-hover:scale-125 group-hover:text-blue-800">
                         02
                     </div>
@@ -199,7 +199,7 @@
                 </div>
                 
                 <!-- Feature 3: Manufacturing -->
-                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 transition-all duration-300 hover:bg-blue-50/50 hover:scale-105 rounded-lg cursor-pointer group">
+                <div class="flex flex-col gap-2 items-start justify-center py-3 px-2 transition-all duration-300 hover:bg-blue-50/50 hover:shadow-md rounded-lg cursor-pointer group">
                     <div class="font-extrabold text-brand-primary text-lg transition-all duration-300 group-hover:scale-125 group-hover:text-blue-800">
                         03
                     </div>
@@ -234,7 +234,7 @@
             <!-- Brand Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 <!-- Brand Card 1: Beezo -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-pointer">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/Image/brands.png" alt="Beezo Products" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -255,7 +255,7 @@
                 </div>
 
                 <!-- Brand Card 2: Yummzi -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-pointer">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/Image/brands.png" alt="Yummzi Products" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -276,7 +276,7 @@
                 </div>
 
                 <!-- Brand Card 3: Foods24x7 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 group cursor-pointer">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer">
                     <div class="relative h-64 overflow-hidden">
                         <img src="assets/Image/brands.png" alt="Foods24x7 Products" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
@@ -318,7 +318,7 @@
             <!-- Mini Card Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 <!-- Card 1 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-brand-primary cursor-pointer" style="animation-delay: 0s;">
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0s;">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
                         <i class="fa-solid fa-seedling text-brand-primary text-lg"></i>
                     </div>
@@ -331,9 +331,9 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-green-600 cursor-pointer" style="animation-delay: 0.15s;">
-                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-green-600 hover:scale-110 group">
-                        <i class="fa-solid fa-heart-pulse text-green-600 text-lg"></i>
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0.15s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
+                        <i class="fa-solid fa-heart-pulse text-brand-primary text-lg"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">
                         Health First
@@ -344,9 +344,9 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-purple-600 cursor-pointer" style="animation-delay: 0.30s;">
-                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-purple-600 hover:scale-110 group">
-                        <i class="fa-solid fa-handshake text-purple-600 text-lg"></i>
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0.30s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
+                        <i class="fa-solid fa-handshake text-brand-primary text-lg"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">
                         Inclusive Chain
@@ -357,9 +357,9 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-cyan-600 cursor-pointer" style="animation-delay: 0.45s;">
-                    <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-cyan-600 hover:scale-110 group">
-                        <i class="fa-solid fa-shield-halved text-cyan-600 text-lg"></i>
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0.45s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
+                        <i class="fa-solid fa-shield-halved text-brand-primary text-lg"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">
                         Quality Discipline
@@ -370,9 +370,9 @@
                 </div>
 
                 <!-- Card 5 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-indigo-600 cursor-pointer" style="animation-delay: 0.60s;">
-                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-indigo-600 hover:scale-110 group">
-                        <i class="fa-solid fa-map-location-dot text-indigo-600 text-lg"></i>
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0.60s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
+                        <i class="fa-solid fa-map-location-dot text-brand-primary text-lg"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">
                         National Footprint
@@ -383,9 +383,9 @@
                 </div>
 
                 <!-- Card 6 -->
-                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-blue-600 cursor-pointer" style="animation-delay: 0.75s;">
-                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-blue-600 hover:scale-110 group">
-                        <i class="fa-solid fa-globe text-blue-600 text-lg"></i>
+                <div class="p-5 border border-slate-200 rounded-xl bg-white/80 backdrop-blur-sm opacity-0 animate-fade-up transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-brand-primary cursor-pointer" style="animation-delay: 0.75s;">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 hover:bg-brand-primary hover:scale-110 group">
+                        <i class="fa-solid fa-globe text-brand-primary text-lg"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-900 mb-2">
                         Global Reach
@@ -416,10 +416,10 @@
     <section class="py-20 sm:py-24 md:py-28 bg-slate-50 text-center">
         <!-- Header -->
         <div class="max-w-3xl mx-auto mb-16 px-6">
-            <span class="text-sm font-bold text-brand-primary tracking-wide uppercase transition-all duration-300 hover:tracking-widest cursor-default">
+            <span class="text-sm font-bold text-brand-primary tracking-wide uppercase">
                 OUR PRESENCE
             </span>
-            <h2 class="text-4xl font-bold text-slate-900 mt-3 mb-4 transition-all duration-300 hover:text-brand-primary cursor-default">
+            <h2 class="text-4xl font-bold text-slate-900 mt-3 mb-4">
                 Connected Across India
             </h2>
             <p class="text-base text-slate-600">
@@ -603,7 +603,7 @@
         }
         
         .om-node:hover {
-            transform: scale(1.1);
+            transform: translateY(-4px);
             box-shadow: 0 12px 30px rgba(30, 64, 175, 0.25);
             border: 2px solid rgb(30, 64, 175);
             z-index: 10;
@@ -768,8 +768,8 @@
                         </div>
                     </div>
 
-                    <div class="pa-item">
-                        <div class="pa-icon">✓</div>
+                    <div class="pa-item transition-all duration-300 hover:translate-x-2 cursor-pointer">
+                        <div class="pa-icon transition-all duration-300 hover:scale-125 hover:shadow-lg">✓</div>
                         <div>
                             <h3>Long-Term Value</h3>
                             <p>Partnerships designed to grow, adapt, and succeed together.</p>
